@@ -30,8 +30,8 @@ function Card({ id, url, traits, name, currentOwner }: MetafuseAsset) {
   }
 
   return (
-    <Link href={`/content/${currentOwner}/${tierOfToken.value}`}>
-      <div className="max-w-sm mx-auto bg-white rounded-l shadow-md overflow-hidden md:max-w-2xl">
+    <div className="max-w-sm mx-auto bg-white rounded-l shadow-md overflow-hidden md:max-w-2xl">
+      <Link href={`/content/${currentOwner}/${tierOfToken.value}`}>
         <div className="md:flex bg-slate-300 border-2 border-white">
           <div className="md:flex-shrink-0">
             <Image
@@ -59,8 +59,8 @@ function Card({ id, url, traits, name, currentOwner }: MetafuseAsset) {
             </ul>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
 

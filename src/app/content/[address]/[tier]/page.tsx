@@ -38,7 +38,7 @@ async function getData(account: string, tier: Tier) {
     .METAFUSE_PROJECT_ID!}?owner=${account}&filter[Tier]=${tier}`;
 
   const res = await fetch(url, {
-    next: { revalidate: 30, tags: [tier] },
+    next: { revalidate: 10 },
     headers: {
       Authorization: process.env.METAFUSE_API_KEY as string,
     },

@@ -5,7 +5,7 @@ async function getData(account: string) {
   const url = `https://gateway.metafuse.me/v1/items/${process.env
     .METAFUSE_PROJECT_ID!}?owner=${account}`;
   const res = await fetch(url, {
-    next: { revalidate: 10, tags: [account] },
+    next: { revalidate: 10 },
     headers: {
       Authorization: process.env.METAFUSE_API_KEY as string,
     },
@@ -31,7 +31,7 @@ export default async function Page({
       <div>
         {data.length ? (
           data.map((item) => {
-            return <Card key={item.id} {...item} />;
+            return <Card key={item.id + item.traitHash} {...item} />;
           })
         ) : (
           <div>
