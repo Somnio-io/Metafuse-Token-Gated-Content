@@ -34,7 +34,17 @@ export default async function Page({
             return <Card key={item.id} {...item} />;
           })
         ) : (
-          <div>No Passes Found</div>
+          <div>
+            No Passes Found, mint one on Base Goerli{" "}
+            <a
+              className="text-blue-300"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://token-gate-example.metafuse.me/"
+            >
+              Here
+            </a>
+          </div>
         )}
       </div>
     </main>

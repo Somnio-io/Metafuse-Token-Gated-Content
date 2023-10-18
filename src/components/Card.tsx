@@ -26,7 +26,7 @@ function Card({ id, url, traits, name, currentOwner }: MetafuseAsset) {
   const tierOfToken = traits.find((_trait) => _trait.trait_type === "Tier");
 
   if (!tierOfToken) {
-    return <div>You dont have a Pass. Go and Mint one here!</div>;
+    return <div>You dont have a Pass. Go and Mint one.</div>;
   }
 
   return (
