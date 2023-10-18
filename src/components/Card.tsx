@@ -22,7 +22,14 @@ interface Trait {
   value: string;
 }
 
-function Card({ id, url, traits, name, currentOwner }: MetafuseAsset) {
+function Card({
+  id,
+  url,
+  traits,
+  name,
+  traitHash,
+  currentOwner,
+}: MetafuseAsset) {
   const tierOfToken = traits.find((_trait) => _trait.trait_type === "Tier");
 
   if (!tierOfToken) {
@@ -35,6 +42,7 @@ function Card({ id, url, traits, name, currentOwner }: MetafuseAsset) {
         <div className="md:flex bg-slate-300 border-2 border-white">
           <div className="md:flex-shrink-0">
             <Image
+              key={id + traitHash}
               className="h-48 w-full object-cover md:h-full md:w-48"
               src={url}
               alt={id}
