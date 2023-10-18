@@ -1,3 +1,5 @@
+export const fetchCache = "force-no-store";
+
 import Card, { MetafuseAsset } from "@/components/Card";
 import React from "react";
 
@@ -5,7 +7,6 @@ async function getData(account: string) {
   const url = `https://gateway.metafuse.me/v1/items/${process.env
     .METAFUSE_PROJECT_ID!}?owner=${account}`;
   const res = await fetch(url, {
-    next: { revalidate: 10 },
     headers: {
       Authorization: process.env.METAFUSE_API_KEY as string,
     },
