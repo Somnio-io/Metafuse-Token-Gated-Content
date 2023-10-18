@@ -10,7 +10,7 @@ If you want a live demo of this application, access it below on Vercel.
 
 - https://metafuse-token-gated-content.vercel.app/
 
-## Quickstart
+## Run this example locally
 
 - Get your Metafuse API Key & Project ID from within your Project Settings [Metafuse](https://app.metafuse.me) and add those to your .env file.
 - Install dependancies and start the application locally - `bun i && bun dev`

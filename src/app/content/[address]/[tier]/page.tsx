@@ -1,7 +1,39 @@
 import { MetafuseAsset } from "@/components/Card";
 import React from "react";
 
-async function getData(account: string, tier: string) {
+type Tier = "One" | "Two" | "Three";
+
+const handleDynamicContent = async (tier: Tier) => {
+  let src;
+  switch (tier) {
+    case "One":
+      src = "https://api.metafuse.me/assets/metafuse/NeverGonnaGiveYouUp.mp4";
+      break;
+    case "Two":
+      src = "https://api.metafuse.me/assets/metafuse/example-1.mp4";
+      break;
+    case "Three":
+      src = "https://api.metafuse.me/assets/metafuse/example-2.mp4";
+      break;
+    default:
+      return "";
+  }
+  return (
+    <video
+      className="mx-auto my-auto"
+      muted={true}
+      controls={true}
+      autoPlay={true}
+      playsInline={true}
+      loop={true}
+      height={390}
+      width={390}
+      src={src}
+    />
+  );
+};
+
+async function getData(account: string, tier: Tier) {
   const url = `https://gateway.metafuse.me/v1/items/${process.env
     .METAFUSE_PROJECT_ID!}?owner=${account}&filter[Tier]=${tier}`;
 
@@ -24,7 +56,7 @@ async function getData(account: string, tier: string) {
 export default async function Page({
   params: { address, tier },
 }: {
-  params: { address: string; tier: string };
+  params: { address: string; tier: Tier };
 }) {
   const data = await getData(address, tier);
 
@@ -32,19 +64,7 @@ export default async function Page({
     return (
       <div>
         Welcome to your exclusive content for Tier: {tier}
-        <video
-          className="mx-auto my-auto"
-          muted={true}
-          controls={true}
-          autoPlay={true}
-          playsInline={true}
-          loop={true}
-          height={390}
-          width={390}
-          src={
-            "https://api.metafuse.me/assets/metafuse/NeverGonnaGiveYouUp.mp4"
-          }
-        />
+        {handleDynamicContent(tier)}
       </div>
     );
   } else {
