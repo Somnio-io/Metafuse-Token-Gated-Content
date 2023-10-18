@@ -17,7 +17,7 @@ async function getData(account: string, tier: string) {
   }
 
   const jsonResponse = await res.json();
-  // Based on the traits within the jsonResponse object, you could fetch other content from a backend to show to the user
+  // Based on the traits within the jsonResponse object - you could fetch other content from a backend to show to the user
   return jsonResponse.items as MetafuseAsset[];
 }
 
@@ -48,6 +48,6 @@ export default async function Page({
       </div>
     );
   } else {
-    return <div>You don't have access to this content: {tier}</div>;
+    return <div>You do not have access to this content: {tier}</div>;
   }
 }

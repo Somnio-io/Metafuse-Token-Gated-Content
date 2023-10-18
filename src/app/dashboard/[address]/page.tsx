@@ -1,7 +1,7 @@
 import Card, { MetafuseAsset } from "@/components/Card";
 import React from "react";
 
-export async function getData(account: string) {
+async function getData(account: string) {
   const url = `https://gateway.metafuse.me/v1/items/${process.env
     .METAFUSE_PROJECT_ID!}?owner=${account}`;
   const res = await fetch(url, {
