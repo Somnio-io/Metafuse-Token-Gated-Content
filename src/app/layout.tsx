@@ -17,7 +17,7 @@ const { chains, publicClient } = configureChains(
 
 const { connectors } = getDefaultWallets({
   appName: "Metafuse Token Gate Example",
-  projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || "",
+  projectId: "992ba7401ca2e5a28d14133ea026b30b", // https://github.com/WalletConnect/walletconnect-monorepo/issues/2883
   chains,
 });
 
