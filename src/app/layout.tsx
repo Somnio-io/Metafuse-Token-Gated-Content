@@ -17,7 +17,7 @@ const { chains, publicClient } = configureChains(
 
 const { connectors } = getDefaultWallets({
   appName: "Metafuse Token Gate Example",
-  projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID as string,
+  projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || "",
   chains,
 });
 
